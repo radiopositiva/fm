@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link href="icon.png" rel="icon" sizes="250x250" type="image/png">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-98MVHJ8P6C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-98MVHJ8P6C');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POSITIVA FM</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 10px auto;
+            display: block;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .info, #status {
+            margin-top: 20px;
+            text-align: center;
+            color: #007bff;
+        }
+
+        /* Social Buttons */
+        .social-buttons {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-buttons.left {
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .social-buttons.right {
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+
+        .social-button {
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            background-color: transparent;
+        }
+
+        .social-button img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .social-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            margin-top: 20px;
+            width: 90%;
+            max-width: 600px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel a {
+            flex: 0 0 100%;
+            text-align: center;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>POSITIVA FM</h1>
+    <audio id="radio" src="https://stm37.srvstm.com:6888/stream" preload="auto"></audio>
+    <button onclick="playRadio()">Play</button>
+    <button onclick="stopRadio()">Stop</button>
+
+    <div class="info">
+        <div id="time"></div>
+        <div id="status">Parado.</div>
+    </div>
+
+    <!-- Social Media Buttons -->
+    <div class="social-buttons left">
+        <a href="https://api.whatsapp.com/send/?phone=5524999936696&text&app_absent=0" target="_blank" class="social-button">
+            <img src="https://cdn-icons-png.flaticon.com/128/13051/13051741.png" alt="WhatsApp">
+        </a>
+        <a href="https://www.instagram.com/positivafm95/" target="_blank" class="social-button">
+            <img src="https://cdn-icons-png.flaticon.com/128/3955/3955024.png" alt="Instagram">
+        </a>
+        <a href="https://www.facebook.com/positivafm95/" target="_blank" class="social-button">
+            <img src="https://cdn-icons-png.flaticon.com/128/733/733547.png" alt="Facebook">
+        </a>
+    </div>
+
+    <div class="social-buttons right">
+        <a href="https://x.com/radiopositivafm/" target="_blank" class="social-button">
+            <img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" alt="Twitter">
+        </a>
+        <a href="https://www.youtube.com/@topangra" target="_blank" class="social-button">
+            <img src="https://cdn-icons-png.flaticon.com/128/3670/3670147.png" alt="YouTube">
+        </a>
+        <a href="https://radiopositivafm.com.br/" target="_blank" class="social-button">
+            <img src="https://cdn-icons-png.flaticon.com/128/3308/3308395.png" alt="Website">
+        </a>
+    </div>
+
+    <!-- Carousel of Ads -->
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <a href="https://sourjnet.com.br/#" target="_blank">
+                <img src="rjnet.jpeg" alt="Anunciante 1">
+            </a>
+            <a href="https://www.facebook.com/tucaparafusos/?locale=pt_BR" target="_blank">
+                <img src="tuca.jpeg" alt="Anunciante 2">
+            </a>
+            <a href="https://www.instagram.com/acouguepantanalcentro/" target="_blank">
+                <img src="pantanal.jpg" alt="Anunciante 3">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const radio = document.getElementById('radio');
+        const status = document.getElementById('status');
+
+        function playRadio() {
+            radio.src = "https://stm37.srvstm.com:6888/stream";
+            radio.currentTime = 0;
+            radio.play();
+            status.textContent = 'Tocando...';
+        }
+
+        function stopRadio() {
+            radio.pause();
+            radio.currentTime = 0;
+            status.textContent = 'Parado.';
+        }
+
+        radio.addEventListener('error', () => {
+            status.textContent = 'Erro ao carregar o áudio.';
+        });
+
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('time').textContent = `Hora: ${timeString}`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Carousel Functionality
+        const carousel = document.getElementById('carousel');
+        const totalSlides = document.querySelectorAll('#carousel a').length;
+        let currentIndex = 0;
+
+        function showNextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            const offset = -currentIndex * 100;
+            carousel.style.transform = `translateX(${offset}%)`;
+        }
+
+        setInterval(showNextSlide, 3000);
+    </script>
+</body>
+</html>
