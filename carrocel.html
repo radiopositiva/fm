@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positiva FM - Notícias</title>
+    <style>
+        /* Estilos básicos para o carrossel */
+        #carrossel {
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            background-color: #8B0000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .noticia {
+            display: none;
+            font-size: 1.2em;
+        }
+        .noticia.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="carrossel">
+        <div class="noticia" id="noticia-placeholder">Carregando notícias...</div>
+    </div>
+
+    <script>
+        async function carregarNoticias() {
+            try {
+                // Faz a requisição do arquivo JSON de notícias
+                const response = await fetch('noticias.json');
+                const noticias = await response.json();
+                
+                // Insere as notícias no carrossel
+                const carrossel = document.getElementById('carrossel');
+                carrossel.innerHTML = ''; // Limpa o placeholder
+
+                noticias.forEach((noticia, index) => {
+                    const noticiaDiv = document.createElement('div');
+                    noticiaDiv.className = 'noticia';
+                    if (index === 0) noticiaDiv.classList.add('active'); // Primeira notícia ativa
+
+                    noticiaDiv.innerHTML = `
+                        <strong>${noticia.autor}</strong>: ${noticia.mensagem} <br>
+                        <small>${new Date(noticia.timestamp).toLocaleString()}</small>
+                    `;
+                    carrossel.appendChild(noticiaDiv);
+                });
+
+                iniciarCarrossel();
+            } catch (error) {
+                console.error('Erro ao carregar notícias:', error);
+            }
+        }
+
+        function iniciarCarrossel() {
+            const noticias = document.querySelectorAll('.noticia');
+            let index = 0;
+
+            setInterval(() => {
+                noticias[index].classList.remove('active');
+                index = (index + 1) % noticias.length;
+                noticias[index].classList.add('active');
+            }, 3000); // Troca de notícia a cada 3 segundos
+        }
+
+        // Carrega as notícias ao iniciar a página
+        carregarNoticias();
+    </script>
+
+</body>
+</html>
