@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link href="icon.png" rel="icon" sizes="250x250" type="image/png">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-98MVHJ8P6C"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YH2FT54LW7"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-98MVHJ8P6C');
+        gtag('config', 'G-YH2FT54LW7');
     </script>
+    <link href="icon.png" rel="icon" sizes="250x250" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="ppck-ver" content="c05c78cb1350c22e9e6611aea1879d4a" />
+    <meta name="ppck-ver" content="c05c78cb1350c22e9e6611aea1879d4a">
     <title>POSITIVA FM</title>
     <style>
+        /* Estilos gerais */
         body {
             display: flex;
             flex-direction: column;
@@ -55,7 +57,7 @@
             color: #007bff;
         }
 
-        /* Social Buttons */
+        /* Botões sociais */
         .social-buttons {
             position: fixed;
             display: flex;
@@ -106,7 +108,7 @@
             }
         }
 
-        /* Carousel Styles */
+        /* Estilos do Carrossel */
         .carousel-container {
             margin-top: 20px;
             width: 90%;
@@ -146,7 +148,7 @@
         <div id="status">Parado.</div>
     </div>
 
-    <!-- Social Media Buttons -->
+    <!-- Botões de Mídia Social -->
     <div class="social-buttons left">
         <a href="https://api.whatsapp.com/send/?phone=5524999936696&text&app_absent=0" target="_blank" class="social-button">
             <img src="https://cdn-icons-png.flaticon.com/128/13051/13051741.png" alt="WhatsApp">
@@ -171,26 +173,26 @@
         </a>
     </div>
 
-    <!-- Carousel of Ads -->
+    <!-- Carrossel de Anúncios -->
     <div class="carousel-container">
         <div class="carousel" id="carousel">
             <a href="https://sourjnet.com.br/" target="_blank">
-                <img src="rjnet.jpeg" alt="Anunciante 1">
+                <img src="rjnet.jpeg" alt="Anunciante RJNet">
             </a>
             <a href="https://www.facebook.com/tucaparafusos/?locale=pt_BR" target="_blank">
-                <img src="tuca.jpeg" alt="Anunciante 2">
+                <img src="tuca.jpeg" alt="Anunciante Tuca Parafusos">
             </a>
             <a href="https://www.instagram.com/acouguepantanalcentro/" target="_blank">
-                <img src="pantanal.jpg" alt="Anunciante 3">
+                <img src="pantanal.jpg" alt="Açougue Pantanal">
             </a>
             <a href="https://www.instagram.com/lojasnalin/" target="_blank">
-                <img src="nalin.png" alt="Anunciante 1">
+                <img src="nalin.png" alt="Lojas Nalin">
             </a>
             <a href="https://www.facebook.com/casagloborj/" target="_blank">
-                <img src="casa.png" alt="Anunciante 2">
+                <img src="casa.png" alt="Casa Globo">
             </a>
             <a href="https://www.facebook.com/restaurantecantinhodaval/?locale=br_FR" target="_blank">
-                <img src="val.jpg" alt="Anunciante 3">
+                <img src="val.jpg" alt="Cantinho da Val">
             </a>
         </div>
     </div>
@@ -225,7 +227,7 @@
         setInterval(updateTime, 1000);
         updateTime();
 
-        // Carousel Functionality
+        // Funcionalidade do Carrossel
         const carousel = document.getElementById('carousel');
         const totalSlides = document.querySelectorAll('#carousel a').length;
         let currentIndex = 0;
@@ -238,6 +240,5 @@
 
         setInterval(showNextSlide, 3000);
     </script>
-    <meta name="ppck-ver" content="c05c78cb1350c22e9e6611aea1879d4a" />
 </body>
 </html>
