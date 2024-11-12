@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade de Programação da Rádio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .programacao-container {
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+    .tab {
+      padding: 10px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      background-color: #ddd;
+      border-radius: 4px 4px 0 0;
+    }
+    .tab.active {
+      background-color: #fff;
+      border-bottom: 1px solid #fff;
+    }
+    .tab-content {
+      display: none;
+      border: 1px solid #ccc;
+      border-top: none;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 0 0 4px 4px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #f8f8f8;
+    }
+    .highlight {
+      background-color: #ffeb3b;
+    }
+  </style>
+</head>
+<body>
+
+<div class="programacao-container">
+  <h2>Grade de Programação</h2>
+  <div class="tabs">
+    <div class="tab" onclick="openTab(event, 'Domingo')">Domingo</div>
+    <div class="tab" onclick="openTab(event, 'Segunda')">Segunda</div>
+    <div class="tab" onclick="openTab(event, 'Terça')">Terça</div>
+    <div class="tab" onclick="openTab(event, 'Quarta')">Quarta</div>
+    <div class="tab" onclick="openTab(event, 'Quinta')">Quinta</div>
+    <div class="tab" onclick="openTab(event, 'Sexta')">Sexta</div>
+    <div class="tab" onclick="openTab(event, 'Sábado')">Sábado</div>
+  </div>
+
+  <!-- Conteúdo das abas, conforme o exemplo original -->
+  <div id="Segunda" class="tab-content"> 
+    <table>
+      <tr><th>Horário</th><th>Programa</th><th>Apresentador</th></tr>
+      <tr><td>06:00</td><td>MANHÃ POSITIVA</td><td>Viny Gomes</td></tr>
+      <tr><td>08:00</td><td>ANGRA NA ONDA</td><td>Marcus Megga</td></tr>
+      <tr><td>10:00</td><td>PAINEL DE CONTROLE</td><td>Cristiano Ferreira</td></tr>
+      <tr><td>12:00</td><td>SELEÇÃO BRASIL</td><td>Cristiano Ferreira</td></tr>
+      <tr><td>13:00</td><td>RADIO CONTROLE</td><td>Gilson Silva</td></tr>
+      <tr><td>15:00</td><td>PROGRAMA DU FARIA</td><td>Flávio Faria</td></tr>
+      <tr><td>18:00</td><td>PARADÃO SERTANEJO</td><td>Viny Gomes</td></tr>
+      <tr><td>20:00</td><td>SACOLEJO</td><td>Zareta Jr</td></tr>
+      <tr><td>22:00</td><td>ESTAÇÃO DEZ</td><td>Zareta Jr</td></tr>
+    </table>
+  </div>
+  
+  <div id="Terça" class="tab-content"> 
+    <table>
+      <tr><th>Horário</th><th>Programa</th><th>Apresentador</th></tr>
+      <tr><td>06:00</td><td>MANHÃ POSITIVA</td><td>Viny Gomes</td></tr>
+      <tr><td>08:00</td><td>ANGRA NA ONDA</td><td>Marcus Megga</td></tr>
+      <tr><td>10:00</td><td>PAINEL DE CONTROLE</td><td>Cristiano Ferreira</td></tr>
+      <tr><td>12:00</td><td>SELEÇÃO BRASIL</td><td>Cristiano Ferreira</td></tr>
+      <tr><td>13:00</td><td>RADIO CONTROLE</td><td>Gilson Silva</td></tr>
+      <tr><td>15:00</td><td>PROGRAMA DU FARIA</td><td>Flávio Faria</td></tr>
+      <tr><td>18:00</td><td>PARADÃO SERTANEJO</td><td>Viny Gomes</td></tr>
+      <tr><td>20:00</td><td>SACOLEJO</td><td>Zareta Jr</td></tr>
+      <tr><td>22:00</td><td>ESTAÇÃO DEZ</td><td>Zareta Jr</td></tr>
+    </table>
+  </div>
+  
+  <div id="Quarta" class="tab-content"> 
+    <table>
+      <tr><th>Horário</th><th>Programa</th><th>Apresentador</th></tr>
+      <tr><td>06:00</td><td>MANHÃ POSITIVA</td><td>Viny Gomes</td></tr>
+      <tr><td>08:00</td><td>ANGRA NA ONDA</td><td>Marcus Megga</td></tr>
+      <tr><td>10:00</td><td>PAINEL DE CONTROLE</td><td>Cristiano Ferreira</td></tr>
+      <tr><td>12:00</td><td>SELEÇÃO BRASIL</td><td>Cristiano Ferreira</td></tr>
+      <tr><td>13:00</td><td>RADIO CONTROLE</td><td>Gilson Silva</td></tr>
+      <tr><td>15:00</td><td>PROGRAMA DU FARIA</td><td>Flávio Faria</td></tr>
+      <tr><td>18:00</td><td>PARADÃO SERTANEJO</td><td>Viny Gomes</td></tr>
+      <tr><td>20:00</td><td>SACOLEJO</td><td>Zareta Jr</td></tr>
+      <tr><td>22:00</td><td>ESTAÇÃO DEZ</td><td>Zareta Jr</td></tr>
+    </table>
+  </div>
+  
+  <div id="Quinta" class="tab-content"> 
+    <table>
+      <tr><th>Horário</th><th>Programa</th><th>Apresentador</th></tr>
+      <tr><td>06:00</td><td>MANHÃ POSITIVA</td><td>Viny Gomes</td></tr>
+      <tr><td>08:00</td><td>ANGRA NA ONDA</td><td>Marcus Megga</td></tr>
+      <tr><td>10:00</td><td>PAINEL DE CONTROLE</td><td>Cristiano Ferreira</td></tr>
+      <tr><td>12:00</td><td>SELEÇÃO BRASIL</td><td>Cristiano Ferreira</td></tr>
+      <tr><td>13:00</td><td>RADIO CONTROLE</td><td>Gilson Silva</td></tr>
+      <tr><td>15:00</td><td>PROGRAMA DU FARIA</td><td>Flávio Faria</td></tr>
+      <tr><td>18:00</td><td>PARADÃO SERTANEJO</td><td>Viny Gomes</td></tr>
+      <tr><td>20:00</td><td>SACOLEJO</td><td>Zareta Jr</td></tr>
+      <tr><td>22:00</td><td>ESTAÇÃO DEZ</td><td>Zareta Jr</td></tr>
+    </table>
+  </div>
+  
+  <div id="Sexta" class="tab-content"> 
+    <table>
+      <tr><th>Horário</th><th>Programa</th><th>Apresentador</th></tr>
+      <tr><td>06:00</td><td>MANHÃ POSITIVA</td><td>Viny Gomes</td></tr>
+      <tr><td>08:00</td><td>ANGRA NA ONDA</td><td>Marcus Megga</td></tr>
+      <tr><td>10:00</td><td>PAINEL DE CONTROLE</td><td>Cristiano Ferreira</td></tr>
+      <tr><td>12:00</td><td>SELEÇÃO BRASIL</td><td>Cristiano Ferreira</td></tr>
+      <tr><td>13:00</td><td>RADIO CONTROLE</td><td>Gilson Silva</td></tr>
+      <tr><td>15:00</td><td>PROGRAMA DU FARIA</td><td>Flávio Faria</td></tr>
+      <tr><td>18:00</td><td>PARADÃO SERTANEJO</td><td>Viny Gomes</td></tr>
+      <tr><td>20:00</td><td>VERSÕES AO VIVO</td><td>Zareta</td></tr>
+    </table>
+  </div>
+  
+  <div id="Sábado" class="tab-content"> 
+    <table>
+      <tr><th>Horário</th><th>Programa</th><th>Apresentador</th></tr>
+      <tr><td>05:30</td><td>Sertão na Cidade</td><td>Aderbal Teixeira</td></tr>
+      <tr><td>08:00</td><td>ESPECIAL ROBERTO CARLOS</td><td>Viny Gomes</td></tr>
+      <tr><td>09:00</td><td>SABADÃO SHOW</td><td>Marco Aurélio</td></tr>
+      <tr><td>10:00</td><td>PAINEL DE CONTROLE</td><td></td></tr>
+      <tr><td>13:00</td><td>PROGRAMAÇÃO NORMAL</td><td></td></tr>
+      <tr><td>14:00</td><td>TARDE TOTAL</td><td></td></tr>
+      <tr><td>16:00</td><td>ENERGIA POSITIVA</td><td></td></tr>
+      <tr><td>18:00</td><td>VERSÕES AO VIVO</td><td>Zareta</td></tr>
+      <tr><td>20:00</td><td>FOLIA POSITIVA</td><td>Zareta</td></tr>
+    </table>
+  </div>
+  
+  <div id="Domingo" class="tab-content"> 
+    <table>
+      <tr><th>Horário</th><th>Programa</th><th>Apresentador</th></tr>
+      <tr><td>05:30</td><td>SERTÃO NA CIDADE</td><td>Aderbal Teixeira</td></tr>
+      <tr><td>08:00</td><td>ALÔ BOM DIA</td><td>Gilson Silva</td></tr>
+      <tr><td>09:00</td><td>TARDE TOTAL</td><td>Marco Aurélio</td></tr>
+      <tr><td>11:00</td><td>ANGRA NA ONDA</td><td>Marcus Megga</td></tr>
+      <tr><td>13:00</td><td>PROGRAMAÇÃO NORMAL</td><td> </td></tr>
+      <tr><td>14:00</td><td>BAILÃO 90</td><td>Zareta</td></tr>
+      <tr><td>18:00</td><td>RADIO CONTROLE</td><td>Zareta</td></tr>
+    </table>
+  </div>
+
+</div>
+
+<script>
+  function openTab(event, tabName) {
+    const tabs = document.getElementsByClassName("tab-content");
+    for (let i = 0; i < tabs.length; i++) {
+      tabs[i].classList.remove("active");
+    }
+    document.getElementById(tabName).classList.add("active");
+
+    const tabButtons = document.getElementsByClassName("tab");
+    for (let i = 0; i < tabButtons.length; i++) {
+      tabButtons[i].classList.remove("active");
+    }
+    if (event) {
+      event.currentTarget.classList.add("active");
+    }
+  }
+
+  function highlightCurrentProgram() {
+    const daysOfWeek = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+    const now = new Date();
+    const currentDay = daysOfWeek[now.getDay()];
+    const currentTime = now.getHours() * 100 + now.getMinutes();
+    
+    openTab(null, currentDay);
+    const currentTab = document.getElementById(currentDay);
+    if (!currentTab) return;
+
+    const rows = currentTab.getElementsByTagName("tr");
+    for (let i = 1; i < rows.length; i++) {
+      const timeCell = rows[i].cells[0];
+      const timeParts = timeCell.textContent.split(":");
+      const programTime = parseInt(timeParts[0]) * 100 + parseInt(timeParts[1]);
+      
+      if (programTime <= currentTime && (i === rows.length - 1 || 
+         parseInt(rows[i + 1].cells[0].textContent.replace(":", "")) > currentTime)) {
+        rows[i].classList.add("highlight");
+        break;
+      }
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", highlightCurrentProgram);
+</script>
+
+</body>
+</html>
