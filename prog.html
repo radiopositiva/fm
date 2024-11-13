@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grade de Programação da Rádio</title>
   <style>
+    /* Estilos continuam iguais */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -65,12 +66,22 @@
     .highlight {
       background-color: #ffeb3b;
     }
+    /* Estilo para o programa atual */
+    #current-program {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e0e0e0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
 
 <div class="programacao-container">
-  <h2>Programação Completa</h2>
+  <h2 style="text-align: center;">Programação Completa</h2>
   <div class="tabs">
     <div class="tab" onclick="openTab(event, 'Domingo')">Domingo</div>
     <div class="tab" onclick="openTab(event, 'Segunda')">Segunda</div>
@@ -81,6 +92,22 @@
     <div class="tab" onclick="openTab(event, 'Sábado')">Sábado</div>
   </div>
 
+  <!-- Conteúdo das abas, conforme o exemplo original -->
+  <div id="Segunda" class="tab-content"> 
+    <table>
+      <tr><th>Horário</th><th>Programa</th><th>Apresentador</th></tr>
+      <tr><td>06:00</td><td>MANHÃ POSITIVA</td><td>Viny Gomes</td></tr>
+      <tr><td>08:00</td><td>ANGRA NA ONDA</td><td>Marcus Megga</td></tr>
+      <tr><td>10:00</td><td>PAINEL DE CONTROLE</td><td>Cristiano Ferreira</td></tr>
+      <tr><td>12:00</td><td>SELEÇÃO BRASIL</td><td>Cristiano Ferreira</td></tr>
+      <tr><td>13:00</td><td>RADIO CONTROLE</td><td>Gilson Silva</td></tr>
+      <tr><td>15:00</td><td>PROGRAMA DU FARIA</td><td>Flávio Faria</td></tr>
+      <tr><td>18:00</td><td>PARADÃO SERTANEJO</td><td>Viny Gomes</td></tr>
+      <tr><td>20:00</td><td>SACOLEJO</td><td>Zareta Jr</td></tr>
+      <tr><td>22:00</td><td>ESTAÇÃO DEZ</td><td>Zareta Jr</td></tr>
+    </table>
+  </div>
+  
   <!-- Conteúdo das abas, conforme o exemplo original -->
   <div id="Segunda" class="tab-content"> 
     <table>
@@ -185,6 +212,8 @@
   </div>
 
 
+  <!-- Div para exibir o programa atual -->
+  <div id="current-program">Programa atual: Nenhum programa no momento</div>
 </div>
 
 <script>
@@ -215,6 +244,8 @@
     if (!currentTab) return;
 
     const rows = currentTab.getElementsByTagName("tr");
+    let currentProgramInfo = "Nenhum programa no momento";
+    
     for (let i = 1; i < rows.length; i++) {
       const timeCell = rows[i].cells[0];
       const timeParts = timeCell.textContent.split(":");
@@ -223,12 +254,24 @@
       if (programTime <= currentTime && (i === rows.length - 1 || 
          parseInt(rows[i + 1].cells[0].textContent.replace(":", "")) > currentTime)) {
         rows[i].classList.add("highlight");
+
+        // Obtem o horário, programa e apresentador para exibir na página
+        const horario = rows[i].cells[0].textContent;
+        const programa = rows[i].cells[1].textContent;
+        const apresentador = rows[i].cells[2].textContent;
+        
+        currentProgramInfo = `Horário: ${horario}<br>Programa: ${programa}<br>Apresentador: ${apresentador}`;
         break;
       }
     }
+    
+    // Exibe o programa atual na div "current-program"
+    document.getElementById("current-program").innerHTML = `Programa atual:<br>${currentProgramInfo}`;
   }
 
-  document.addEventListener("DOMContentLoaded", highlightCurrentProgram);
+  document.addEventListener("DOMContentLoaded", () => {
+    highlightCurrentProgram();
+  });
 </script>
 
 </body>
