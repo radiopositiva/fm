@@ -47,11 +47,16 @@
     </div>
 
     <h1>POSITIVA FM</h1>
-    <audio id="radio" src="https://stm37.srvstm.com:6888/stream" preload="auto"></audio>
-    <button id="playStopButton" onclick="toggleRadio()">Play</button>
+    <audio id="radio" autoplay controls>
+        <source src="https://stm37.srvstm.com:6888/stream"></audio>
 
-    <div class="info">
-        <div id="status">Parado.</div>
+        <button id="openPopupBtn">Programação</button>
+        <div class="popup-container" id="popupContainer">
+            <div class="popup-content">
+                <span class="close-btn" id="closePopupBtn">&times;</span>
+                <!-- iFrame que carrega a página desejada -->
+                <iframe src="prog.html" title="Programação completa"></iframe>
+        </div>
     </div>
         <button id="openPopupBtn">Programação Completa</button>
         <div class="popup-container" id="popupContainer">
